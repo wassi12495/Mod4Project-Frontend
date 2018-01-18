@@ -2,6 +2,7 @@ import React from 'react'
 import FixtureList from './FixtureList'
 import LeagueTable from './LeagueTable'
 import Adapter from './Adapter'
+import TeamList from './TeamList'
 
 
 export default class MainContainer extends React.Component{
@@ -11,43 +12,29 @@ export default class MainContainer extends React.Component{
     this.state = {
       fixtures: [],
       leagueTable:[],
-      leagueInfo:[]
+      leagueInfo:[],
+      teams:[]
     }
   }
 
   componentDidMount(){
-    Adapter.fixtureRequest()
-    .then(resp => resp.json())
-    .then(data => this.setState(
-      {
-      fixtures: data.fixtures
+    Adapter.getTeams()
+    .then(leagues => leagues.map(league => {
+      this.setState({
+        teams: league.teams
+      })
+    }))
 
-      }
-    ))
-
-    Adapter.leagueTableRequest()
-    .then(resp => resp.json())
-    .then(data => this.setState(
-      {
-      leagueTable: data.standing
-
-      }
-    ))
-    Adapter.leagueInfoRequest()
-    .then(resp => resp.json())
-    .then(data => this.setState(
-      {
-      leagueInfo: data
-
-      }
-    ))
   }
+
+
 
   render(){
     console.log("Current state in MainContainer", this.state);
 
     return(
-      <div>
+      <div className="ui grid container">
+        <TeamList teams={this.state.teams} />
         <LeagueTable leagueTable={this.state.leagueTable}/>
         <FixtureList fixtures={this.state.fixtures}/>
       </div>
@@ -60,3 +47,18 @@ export default class MainContainer extends React.Component{
 
 
 }
+
+
+
+
+// componentDidMount(){
+//   Adapter.fixtureRequest()
+//   .then(resp => resp.json())
+//   .then(data => this.setState(
+//     {
+//     fixtures: data.fixtures
+//
+//     }
+//   ))
+//
+// }
