@@ -10,7 +10,8 @@ export default class MainContainer extends React.Component{
 
     this.state = {
       fixtures: [],
-      leagueTable:[]
+      leagueTable:[],
+      leagueInfo:[]
     }
   }
 
@@ -29,6 +30,14 @@ export default class MainContainer extends React.Component{
     .then(data => this.setState(
       {
       leagueTable: data.standing
+
+      }
+    ))
+    Adapter.leagueInfoRequest()
+    .then(resp => resp.json())
+    .then(data => this.setState(
+      {
+      leagueInfo: data
 
       }
     ))
