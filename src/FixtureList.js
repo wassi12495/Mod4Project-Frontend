@@ -5,7 +5,10 @@ const FixtureList = (props) =>{
   const fixture = props.fixtures.map((fx,index) => <FixtureCard fx={fx} key={index}/>)
 
   return(
-    <div>{fixture.reverse()}</div>
+    <div>
+    <h1> Fixtures </h1>
+    {fixture.reverse()}
+    </div>
   )
 
 }
