@@ -7,6 +7,7 @@ const TeamList = ({teams}) => {
   return(
     <div className="eight wide column">
       <div className="ui relaxed items">
+        <h1>HI</h1>
         {team}
       </div>
     </div>
