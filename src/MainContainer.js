@@ -5,6 +5,7 @@ import Adapter from './Adapter'
 import TeamList from './TeamList'
 import NavBar from './NavBar'
 import HomePage from './HomePage'
+import TeamShow from './TeamShow'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 
@@ -51,6 +52,7 @@ export default class MainContainer extends React.Component{
               <div className="ui grid container">
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
+
               </div>
           </div>
 
