@@ -6,7 +6,7 @@ const LeagueTableCard = (props) =>{
   return(
 
     <div>
-      <h1>{props.lt.position}.{props.lt.name} | Points {props.lt.points}</h1>
+      <h1>{props.lt.position}.{props.lt.teamName} | Points {props.lt.points}</h1>
     </div>
   )
 

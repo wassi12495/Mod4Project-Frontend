@@ -28,7 +28,7 @@ export default class MainContainer extends React.Component{
 
     Adapter.getLeagueTable()
     .then(data => this.setState({
-      leagueTable: data
+      leagueTable: data.standing
     }))
 
   }
@@ -39,7 +39,7 @@ export default class MainContainer extends React.Component{
     console.log("Current state in MainContainer", this.state);
 
     return(
-      
+
       <div className="ui grid container">
         <TeamList teams={this.state.teams} />
         <LeagueTable leagueTable={this.state.leagueTable}/>

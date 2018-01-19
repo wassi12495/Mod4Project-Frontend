@@ -19,11 +19,10 @@ class Adapter {
   }
 
   static getLeagueTable(){
-    return fetch( "http://localhost:3001/api/v1/teams",{
-      headers:{
-        "Content-Type": 'application/json',
-        "Accept": 'application/json'
-      }
+    return fetch( "http://api.football-data.org/v1/competitions/445/leagueTable",{
+      headers:  { 'X-Auth-Token': '3a013399d10f4c4b97456f63b52027de' },
+      type: 'GET',
+      datatype: 'json'
     })
     .then(resp=>resp.json())
   }
