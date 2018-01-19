@@ -9,15 +9,25 @@ class Adapter {
   }
 
   static getTeams(){
-    return fetch( "http://localhost:3000/api/v1/leagues",{
+    return fetch( "http://localhost:3001/api/v1/leagues",{
       headers:{
         "Content-Type": 'application/json',
         "Accept": 'application/json'
       }
     })
     .then(resp=>resp.json())
-    
   }
+
+  static getLeagueTable(){
+    return fetch( "http://localhost:3001/api/v1/teams",{
+      headers:{
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      }
+    })
+    .then(resp=>resp.json())
+  }
+
 
 
 }

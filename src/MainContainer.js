@@ -18,11 +18,17 @@ export default class MainContainer extends React.Component{
   }
 
   componentDidMount(){
+
     Adapter.getTeams()
     .then(leagues => leagues.map(league => {
       this.setState({
         teams: league.teams
       })
+    }))
+
+    Adapter.getLeagueTable()
+    .then(data => this.setState({
+      leagueTable: data
     }))
 
   }
@@ -33,6 +39,7 @@ export default class MainContainer extends React.Component{
     console.log("Current state in MainContainer", this.state);
 
     return(
+      
       <div className="ui grid container">
         <TeamList teams={this.state.teams} />
         <LeagueTable leagueTable={this.state.leagueTable}/>
