@@ -7,8 +7,7 @@ import './App.css';
 class HomePage extends Component {
   render() {
     return (
-      <div>
-        <div className="bg"> </div>
+      <div className="column">
         <div className="ui center aligned grid">
           Welcome
         </div>
