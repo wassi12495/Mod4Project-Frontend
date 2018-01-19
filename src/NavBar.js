@@ -1,30 +1,14 @@
 import React, { Component } from 'react';
+import {NavLink} from 'react-router-dom';
 
 
 class NavBar extends Component {
   render() {
     return (
-      <div className="ui secondary menu">
-        <a className="active item">
-          Home
-        </a>
-        <a className="item">
-          Messages
-        </a>
-        <a className="item">
-          Friends
-        </a>
-        <div className="right menu">
-          <div className="item">
-            <div className="ui icon input">
-              <input type="text" placeholder="Search..."/>
-              <i className="search link icon"></i>
-            </div>
-          </div>
-          <a className="ui item">
-            Logout
-          </a>
-        </div>
+      <div class="ui secondary menu">
+        <NavLink to="/" exact> Home </NavLink>
+        <NavLink to="/leagues" exact> Leagues </NavLink>
+        <NavLink to="/teams" exact> Teams </NavLink>
       </div>
     )
   }
