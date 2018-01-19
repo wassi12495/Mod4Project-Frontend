@@ -1,16 +1,20 @@
 import React from 'react'
+import TeamShow from './TeamShow'
+import {Link} from 'react-router-dom'
 
 const imgStyle = {
   width: '100px',
   height: '100px'
 }
 
-const TeamCard = ({team, key}) =>{
+const TeamCard = ({team, key, handleCLick}) =>{
+  // const teamShow = team.map((team,index) => <TeamShow team={team} key={index}/>)
+
   return(
 
     <div className="six wide container">
-      <div className="ui card">
-        <div id={key} className="ui image">
+      <div id={team.id} className="ui card">
+        <div  className="ui image">
           <img style={imgStyle} src={team.img}/>
         </div>
         <div className="content">
@@ -20,7 +24,10 @@ const TeamCard = ({team, key}) =>{
             Points: {team.points}
           </div>
           <div class="extra content">
-            <button class="ui button">More Info</button>
+            <Link to={`/teams/${team.id}`} exact className="item">
+              <button onClick={() => handleCLick(team)} class="ui button">More Info
+              </button>
+            </Link>
           </div>
         </div>
       </div>
