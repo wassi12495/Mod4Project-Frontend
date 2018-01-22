@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route, NavLink, Link, Switch, withRouter } fro
 const TeamList = ({teams}) => {
   const handleCLick = (team) =>{
     console.log(team);
+  
+
   }
   const team = teams.map((team,index) => <TeamCard handleCLick={handleCLick} team={team} key={index}/>)
   const teamPage = teams.map((team,index) => <TeamShow team={team} key={index}/>)
@@ -29,8 +31,7 @@ const TeamList = ({teams}) => {
         <Route exact path={`/teams/:id`} render = {(props) => {
             console.log("exact path /teams/:id")
             return <TeamShow teams = {teams} {...props}/>
-
-          }
+            }
           }
           />
 

@@ -6,6 +6,7 @@ import TeamList from './TeamList'
 import NavBar from './NavBar'
 import HomePage from './HomePage'
 import TeamShow from './TeamShow'
+import LeagueList from './LeagueList'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 
@@ -17,7 +18,8 @@ export default class MainContainer extends React.Component{
       fixtures: [],
       leagueTable:[],
       leagueInfo:[],
-      teams:[]
+      teams:[],
+      leagues: [],
     }
   }
 
@@ -34,7 +36,9 @@ export default class MainContainer extends React.Component{
     }))
 
     Adapter.getLeagues()
-    .then(console.log)
+    .then(leagues => this.setState({
+      leagues: leagues
+    }))
 
   }
 
@@ -53,7 +57,7 @@ export default class MainContainer extends React.Component{
               <div className="ui grid container">
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
-                <Route exact path="/leagues" render = {() => <LeagueTable leagueTable={this.state.leagueTable}/> }/>
+                <Route exact path="/leagues" render = {() => <LeagueList leagues={this.state.leagues}/> }/>
                 <Route path="/teams/:id" render = {(props) => <TeamShow teams={this.state.teams} {...props}/>}/>
               </div>
           </div>
