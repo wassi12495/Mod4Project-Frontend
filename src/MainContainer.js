@@ -26,6 +26,7 @@ export default class MainContainer extends React.Component{
 
   componentDidMount(){
 
+
     Adapter.getTeams()
     .then(teams => this.setState({
       teams: teams
@@ -57,7 +58,7 @@ export default class MainContainer extends React.Component{
             <div>
               <NavBar />
               <div className="ui grid container">
-                <Route exact path="/" component={HomePage} />
+                <Route exact path="/" render={()=> <HomePage leagues={this.state.leagues}/>} />
                 <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
                 <Route exact path="/leagues" render = {() => <LeagueList leagues={this.state.leagues}/> }/>
                 <Route path="/teams/:id" render = {(props) => <TeamShow teams={this.state.teams} {...props}/>}/>

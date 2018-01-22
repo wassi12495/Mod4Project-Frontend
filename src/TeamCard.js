@@ -7,7 +7,7 @@ const imgStyle = {
   height: '100px'
 }
 
-const TeamCard = ({team, key, handleCLick}) =>{
+const TeamCard = ({team, handleCLick}) =>{
   // const teamShow = team.map((team,index) => <TeamShow team={team} key={index}/>)
 
   return(
