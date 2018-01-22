@@ -1,11 +1,18 @@
 class Adapter {
 
-  static fixtureRequest(){
-    return fetch("http://api.football-data.org/v1/competitions/445/fixtures", {
-      headers:  { 'X-Auth-Token': '3a013399d10f4c4b97456f63b52027de' },
-      type: 'GET',
-      datatype: 'json'
+  static getFixtures(leagues){
+    console.log("Leagues",leagues);
+    return leagues.map(league => {
+
+      fetch(`http://api.football-data.org/v1/competitions/${league.api_id}/fixtures`, {
+       headers:  { 'X-Auth-Token': '3a013399d10f4c4b97456f63b52027de' },
+       type: 'GET',
+       datatype: 'json'
+     }).then(resp=>resp.json())
+     .then(console.log)
     })
+
+
   }
 
   static getTeams(){

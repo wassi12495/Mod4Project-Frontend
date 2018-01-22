@@ -41,6 +41,9 @@ export default class MainContainer extends React.Component{
       leagues: leagues
     }))
 
+    // Adapter.getFixtures(this.state.leagues)
+
+
   }
 
 
