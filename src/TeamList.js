@@ -1,7 +1,7 @@
 import React from 'react'
 import TeamCard from './TeamCard'
 import TeamShow from './TeamShow'
-import { BrowserRouter as Router, Route, NavLink, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, Link, Switch, withRouter } from 'react-router-dom';
 
 
 const TeamList = ({teams}) => {
@@ -23,7 +23,7 @@ const TeamList = ({teams}) => {
 
             }
           />
-        <Route exact path={`/teams/:id`} render = {(props) =>
+        <Route path={`/teams/:id`} render = {(props) =>
               <TeamShow teams = {teams} {...props}/>
           }
         />

@@ -7,14 +7,15 @@ const imgStyle = {
 
 const TeamShow = ({teams,match}) => {
   console.log(teams);
-  console.log(teamNew);
   console.log(match);
-  const teamNew = teams.find(team => team.id === parseInt(match.params.id))
+  const team = teams.find(team => team.id === parseInt(match.params.id))
+  console.log(team);
+  
   return (
     <div>
-        <h1>{teamNew.name}</h1>
-        <h3>({teamNew.wins}-{teamNew.draws}-{teamNew.losses})</h3>
-        <img style={imgStyle} src={teamNew.img}/>
+        <h1>{team.name}</h1>
+        <h3>({team.wins}-{team.draws}-{team.losses})</h3>
+        <img style={imgStyle} src={team.img}/>
     </div>
   )
 
