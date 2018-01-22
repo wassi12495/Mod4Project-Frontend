@@ -24,16 +24,17 @@ export default class MainContainer extends React.Component{
   componentDidMount(){
 
     Adapter.getTeams()
-    .then(leagues => leagues.map(league => {
-      this.setState({
-        teams: league.teams
-      })
+    .then(teams => this.setState({
+      teams: teams
     }))
 
     Adapter.getLeagueTable()
     .then(data => this.setState({
       leagueTable: data.standing
     }))
+
+    Adapter.getLeagues()
+    .then(console.log)
 
   }
 
@@ -53,6 +54,7 @@ export default class MainContainer extends React.Component{
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
                 <Route exact path="/leagues" render = {() => <LeagueTable leagueTable={this.state.leagueTable}/> }/>
+                <Route path="/teams/:id" render = {(props) => <TeamShow teams={this.state.teams} {...props}/>}/>
               </div>
           </div>
 
