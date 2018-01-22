@@ -15,18 +15,24 @@ const TeamList = ({teams}) => {
     <div className="column">
       <Router>
         <div>
-          <Route exact path='/teams' render = { () =>
+          <Route exact path='/teams' render = { () => {
 
-              <div className="ui grid">
+              console.log("exact path /teams");
+
+              return <div className="ui grid">
                 {team}
               </div>
+            }
 
             }
           />
-        <Route exact path={`/teams/:id`} render = {(props) =>
-              <TeamShow teams = {teams} {...props}/>
+        <Route exact path={`/teams/:id`} render = {(props) => {
+            console.log("exact path /teams/:id")
+            return <TeamShow teams = {teams} {...props}/>
+
           }
-        />
+          }
+          />
 
         </div>
       </Router>

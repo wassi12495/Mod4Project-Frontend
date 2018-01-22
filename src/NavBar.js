@@ -6,10 +6,10 @@ class NavBar extends Component {
   render() {
     return (
       <div className="ui top menu">
-        <NavLink to="/" exact className="item"> Home </NavLink>
-        <NavLink to="/soccer" exact className="item"> Soccer </NavLink>
-        <NavLink to="/teams" exact className="item"> Teams </NavLink>
-        <NavLink to="/leagues" exact className="item"> Leagues </NavLink>
+        <NavLink exact to="/"  className="item"> Home </NavLink>
+        <NavLink exact to="/soccer"  className="item"> Soccer </NavLink>
+        <NavLink exact to="/teams"  className="item"> Teams </NavLink>
+        <NavLink exact to="/leagues"  className="item"> Leagues </NavLink>
       </div>
     )
   }
