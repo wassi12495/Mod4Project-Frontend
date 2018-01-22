@@ -1,5 +1,7 @@
 class Adapter {
 
+
+
   static getFixtures(leagues){
     console.log("Leagues",leagues);
     return leagues.map(league => {
