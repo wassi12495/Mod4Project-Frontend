@@ -1,13 +1,14 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, NavLink, Link, Switch, withRouter } from 'react-router-dom';
 import LeagueCard from './LeagueCard'
+import LeagueShow from './LeagueShow'
 
 
 const LeagueList = ({leagues}) =>{
   console.log(leagues);
   const handleCLick = (league) =>{
     console.log(league);
-    
+
   }
 
   const league = leagues.map((league,index) => <LeagueCard league={league} handleCLick={handleCLick} key={index}/>)
@@ -16,23 +17,24 @@ const LeagueList = ({leagues}) =>{
 
   return(
     <div className="column">
-      <Router>
-        <div>
-          <Route exact path='/leagues' render = { () => {
+    <Switch>
+      <div>
 
-              console.log("exact path /leagues");
+        <Route exact path='/leagues' render = { () => {
 
-              return <div className="ui grid">
-                {league}
-              </div>
-            }
+            console.log("exact path /leagues");
 
-            }
-          />
+            return <div className="ui grid">
+              {league}
+            </div>
+          }
+
+          }
+        />
 
 
-        </div>
-      </Router>
+      </div>
+    </Switch>
 
     </div>
   )

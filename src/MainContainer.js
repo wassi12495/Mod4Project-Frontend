@@ -6,6 +6,7 @@ import TeamList from './TeamList'
 import NavBar from './NavBar'
 import HomePage from './HomePage'
 import TeamShow from './TeamShow'
+import LeagueShow from './LeagueShow'
 import LeagueList from './LeagueList'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
@@ -59,6 +60,7 @@ export default class MainContainer extends React.Component{
                 <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
                 <Route exact path="/leagues" render = {() => <LeagueList leagues={this.state.leagues}/> }/>
                 <Route path="/teams/:id" render = {(props) => <TeamShow teams={this.state.teams} {...props}/>}/>
+                <Route path="/leagues/:id" render = {(props) => <LeagueShow  leagues={this.state.leagues} {...props}/>}/>
               </div>
           </div>
 

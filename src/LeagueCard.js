@@ -1,5 +1,5 @@
 import React from 'react'
-// import TeamShow from './TeamShow'
+import LeagueShow from './LeagueShow'
 import {Link} from 'react-router-dom'
 
 const imgStyle = {
@@ -8,7 +8,7 @@ const imgStyle = {
 }
 
 const LeagueCard = ({league, key, handleCLick}) =>{
-  // const teamShow = league.map((league,index) => <TeamShow league={league} key={index}/>)
+// const leagueShow = league.map((league,index) => <LeagueShow league={league} key={index}/>)
 
   return(
 
