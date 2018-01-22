@@ -27,16 +27,15 @@ class Adapter {
   }
 
   static getLeagueTable(leagues){
-    leagues.map(league => {
-      fetch(`http://api.football-data.org/v1/competitions/${league.api_id}/leagueTable`,{
-        headers:  { 'X-Auth-Token': '3a013399d10f4c4b97456f63b52027de' },
-        type: 'GET',
-        datatype: 'json'
-      })
-      .then(resp=>resp.json())
-      .then(console.log)
-      // if this.state.teams
-
+    return leagues.map(league => {
+        fetch(`http://api.football-data.org/v1/competitions/${league.api_id}/leagueTable`,{
+          headers:  { 'X-Auth-Token': '4a9ace89a355471280f93cb35479661b' },
+          type: 'GET',
+          datatype: 'json'
+        })
+        .then(resp=>resp.json())
+        .then(console.log)
+        // if this.state.teams
     })
   }
 

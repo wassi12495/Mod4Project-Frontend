@@ -11,8 +11,8 @@ const LeagueList = ({leagues}) =>{
     console.log(league);
 
   }
-  const fixtures = Adapter.getFixtures(leagues)
-  console.log(fixtures);
+  // const fixtures = Adapter.getFixtures(leagues)
+  // console.log(fixtures);
   const tables = Adapter.getLeagueTable(leagues)
   console.log(tables);
 

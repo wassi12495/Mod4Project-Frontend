@@ -6,7 +6,7 @@ class NavBar extends Component {
   render() {
     return (
       <div className="ui inverted top menu">
-        <div class="item">
+        <div className="item">
           <img src="https://assets.academy.com/mgen/62/10672662.jpg" />
         </div>
         <NavLink exact to="/"  className="item"> Home </NavLink>

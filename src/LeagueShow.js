@@ -11,6 +11,8 @@ const LeagueShow = ({leagues,match}) => {
   const league = leagues.find(league => league.id === parseInt(match.params.id))
   console.log(league);
 
+  
+
   return (
     <div>
         <h1>{league.name}</h1>
