@@ -52,6 +52,7 @@ export default class MainContainer extends React.Component{
               <div className="ui grid container">
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
+                <Route exact path="/leagues" render = {() => <LeagueTable leagueTable={this.state.leagueTable}/> }/>
               </div>
           </div>
 

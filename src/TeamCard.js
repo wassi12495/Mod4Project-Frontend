@@ -23,9 +23,9 @@ const TeamCard = ({team, key, handleCLick}) =>{
             Position: {team.position} <br></br>
             Points: {team.points}
           </div>
-          <div class="extra content">
-            <Link to={`/teams/${team.id}`} exact className="item">
-              <button onClick={() => handleCLick(team)} class="ui button">More Info
+          <div className="extra content">
+            <Link to={`/teams/${team.id}`} className="item">
+              <button onClick={() => handleCLick(team)} className="ui button">More Info
               </button>
             </Link>
           </div>
