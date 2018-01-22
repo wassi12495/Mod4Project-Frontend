@@ -52,10 +52,6 @@ export default class MainContainer extends React.Component{
     // <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
     console.log("Current state in MainContainer", this.state);
 
-
-
-
-
     return(
       <div className="app">
           <Router>
