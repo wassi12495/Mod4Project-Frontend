@@ -24,10 +24,8 @@ export default class MainContainer extends React.Component{
   componentDidMount(){
 
     Adapter.getTeams()
-    .then(leagues => leagues.map(league => {
-      this.setState({
-        teams: league.teams
-      })
+    .then(teams => this.setState({
+      teams: teams
     }))
 
     Adapter.getLeagueTable()
