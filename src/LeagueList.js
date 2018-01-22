@@ -13,6 +13,9 @@ const LeagueList = ({leagues}) =>{
   }
   const fixtures = Adapter.getFixtures(leagues)
   console.log(fixtures);
+  const tables = Adapter.getLeagueTable(leagues)
+  console.log(tables);
+
 
   const league = leagues.map((league,index) => <LeagueCard league={league} handleCLick={handleCLick} key={index}/>)
 
