@@ -31,10 +31,10 @@ export default class MainContainer extends React.Component{
       teams: teams
     }))
 
-    Adapter.getLeagueTable()
-    .then(data => this.setState({
-      leagueTable: data.standing
-    }))
+    // Adapter.getLeagueTable()
+    // .then(data => this.setState({
+    //   leagueTable: data.standing
+    // }))
 
     Adapter.getLeagues()
     .then(leagues => this.setState({
@@ -48,9 +48,28 @@ export default class MainContainer extends React.Component{
   render(){
     // <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
     console.log("Current state in MainContainer", this.state);
+    var leagues = this.state.leagues
+    var league_ids = []
+    leagues.map(function(league) {
+       league_ids.push(league.api_id)
+    });
+
+    console.log(league_ids);
+
+    league_ids.map(id => {
+      fetch(`http://api.football-data.org/v1/competitions/${id}/leagueTable`,{
+        headers:  { 'X-Auth-Token': '3a013399d10f4c4b97456f63b52027de' },
+        type: 'GET',
+        datatype: 'json'
+      })
+      .then(resp=>resp.json())
+      .then(console.log)
+      // if this.state.teams
+
+    })
+
 
     return(
-
       <div className="app">
           <Router>
             <div>
