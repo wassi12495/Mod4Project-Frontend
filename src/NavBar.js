@@ -7,7 +7,7 @@ class NavBar extends Component {
     return (
       <div className="ui inverted top menu">
         <div class="item">
-          <img src="https://assets.academy.com/mgen/62/10672662.jpg" />
+          <img src="http://www.pngmart.com/files/1/2014-World-Cup-Soccer-Ball-PNG.png" />
         </div>
         <NavLink exact to="/"  className="item"> Home </NavLink>
         <NavLink exact to="/soccer"  className="item"> Soccer </NavLink>

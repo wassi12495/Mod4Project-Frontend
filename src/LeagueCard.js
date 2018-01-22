@@ -3,7 +3,7 @@ import LeagueShow from './LeagueShow'
 import {Link} from 'react-router-dom'
 
 const imgStyle = {
-  width: '100px',
+  width: 'auto',
   height: '100px'
 }
 
