@@ -1,7 +1,7 @@
 import React from 'react'
 import TeamCard from './TeamCard'
 import TeamShow from './TeamShow'
-import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, Link, Switch } from 'react-router-dom';
 
 
 const TeamList = ({teams}) => {
