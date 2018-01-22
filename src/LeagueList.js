@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, NavLink, Link, Switch, withRouter } from 'react-router-dom';
 import LeagueCard from './LeagueCard'
 import LeagueShow from './LeagueShow'
+import Adapter from './Adapter'
 
 
 const LeagueList = ({leagues}) =>{
@@ -10,6 +11,8 @@ const LeagueList = ({leagues}) =>{
     console.log(league);
 
   }
+  const fixtures = Adapter.getFixtures(leagues)
+  console.log(fixtures);
 
   const league = leagues.map((league,index) => <LeagueCard league={league} handleCLick={handleCLick} key={index}/>)
 
