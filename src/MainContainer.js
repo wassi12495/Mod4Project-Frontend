@@ -21,6 +21,10 @@ export default class MainContainer extends React.Component{
     this.setState({currentUser: user})
   }
 
+  handleLogout = () => {
+    this.setState({currentUser: {}})
+  }
+
   render(){
 
     console.log("Current state in MainContainer", this.state);
@@ -29,6 +33,7 @@ export default class MainContainer extends React.Component{
       <div className="app">
         <NavBar
           currentUser={this.state.currentUser}
+          handleLogout={this.handleLogout}
         />
         <div className="ui grid container">
           <Switch>
@@ -38,7 +43,10 @@ export default class MainContainer extends React.Component{
             <Route
               path="/login"
               render={props =>{
-                return <Login {...props} handleLogin={this.handleLogin}/>
+                return <Login
+                        {...props}
+                        handleLogin={this.handleLogin}
+                        />
               }}
             />
 
