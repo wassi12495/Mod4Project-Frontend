@@ -2,6 +2,7 @@ import React from 'react'
 import TeamCard from './TeamCard'
 import TeamShow from './TeamShow'
 import Adapter from './Adapter'
+import SearchTeams from "./SearchTeams"
 import { BrowserRouter as Router, Route, NavLink, Link, Switch, withRouter } from 'react-router-dom';
 
 
@@ -11,7 +12,8 @@ class TeamList extends React.Component{
     super(props)
 
     this.state={
-      teams: []
+      teams: [],
+      search: "",
     }
   }
 
@@ -20,6 +22,13 @@ class TeamList extends React.Component{
     .then(teams => this.setState({
       teams: teams
     }))
+  }
+
+  handleSearchChange = (event) =>{
+    console.log(event.target.value);
+    this.setState({
+      search: event.target.value
+    })
   }
 
 
@@ -39,7 +48,17 @@ class TeamList extends React.Component{
             }}/>
             <Route exact path='/teams' render = { () => {
                 console.log("exact path /teams");
-                return <div className="ui grid"> {team} </div>}
+                return (
+                  <div>
+
+                    <SearchTeams handleChange={this.handleSearchChange}/>
+
+                  <div className="ui grid">
+                  {this.state.teams.filter(t => t.name.toLowerCase().includes(this.state.search))
+                    .map((team,index) => <TeamCard team={team} key={index}/>)}
+                  </div>
+                  </div>
+                )}
               }/>
 
         </Switch>
