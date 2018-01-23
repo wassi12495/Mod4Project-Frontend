@@ -51,8 +51,13 @@ export default class MainContainer extends React.Component{
         />
         <div className="ui grid container">
           <Switch>
-            <Route exact path="/" component={HomePage}/>
-            <Route path="/teams" component={TeamList}/>
+            <Route exact path="/" render={()=>{
+                return <HomePage currentUser={this.state.currentUser}/>
+            }}
+            />
+            <Route path="/teams" render={()=>{
+              return <TeamList currentUser={this.state.currentUser}/>
+            }}/>
             <Route path="/leagues" component={LeagueList}/>
             <Route
               path="/login"

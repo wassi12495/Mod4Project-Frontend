@@ -56,7 +56,7 @@ class TeamList extends React.Component{
 
                     <div className="ui grid">
                     {this.state.teams.filter(t => t.name.toLowerCase().includes(this.state.search.toLowerCase()))
-                      .map((team,index) => <TeamCard  team={team} key={index}/>)}
+                      .map((team,index) => <TeamCard currentUser={this.props.currentUser} team={team} key={index}/>)}
                     </div>
                   </div>
                 )}

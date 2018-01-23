@@ -22,12 +22,19 @@ class HomePage extends Component {
 
   render() {
     console.log(this.state);
+    const loggedIn = !!this.props.currentUser.id
     return (
       <div className="column">
         <div className="ui center aligned grid">
           Welcome
         </div>
+        {loggedIn ? (
+          <h1> Logged in </h1>
+        ):(
+          null
+        )}
       </div>
+
     );
   }
 }

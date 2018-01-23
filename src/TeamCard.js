@@ -6,8 +6,9 @@ const imgStyle = {
   height: '100px'
 }
 
-const TeamCard = ({team, key}) =>{
+const TeamCard = ({team, key, currentUser}) =>{
   // const teamShow = team.map((team,index) => <TeamShow team={team} key={index}/>)
+  const loggedIn = !!currentUser.id
 
   return(
 
@@ -15,6 +16,9 @@ const TeamCard = ({team, key}) =>{
       <div id={key} className="ui card">
         <div  className="ui image">
           <img alt="" style={imgStyle} src={team.img}/>
+          {loggedIn ? (
+            <div className="ui button"> favorite </div>
+          ):(null)}
         </div>
         <div className="content">
           <p> {team.name}</p>
