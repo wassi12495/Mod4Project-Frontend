@@ -26,24 +26,17 @@ export default class MainContainer extends React.Component{
 
   componentDidMount(){
 
-
     Adapter.getTeams()
     .then(teams => this.setState({
       teams: teams
     }))
-
 
     Adapter.getLeagues()
     .then(leagues => this.setState({
       leagues: leagues
     }))
 
-
-
-
     // Adapter.getFixtures(this.state.leagues)
-
-
   }
 
 
