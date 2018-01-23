@@ -50,6 +50,17 @@ class Adapter {
     .then(resp=>resp.json())
   }
 
+  static login(username, password){
+    return fetch("http://localhost:3000/api/v1/users", {
+      method: 'POST',
+      headers:{
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      },
+      body: JSON.stringify({username: username, password: password})
+    }).then(resp => resp.json()).then(console.log)
+  }
+
 
 
 }

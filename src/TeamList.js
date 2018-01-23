@@ -58,8 +58,8 @@ class TeamList extends React.Component{
                 return (
                   <div>
 
-                    <SearchTeams search={this.state.search} handleChange={this.handleSearchChange}/>
-
+                      <SearchTeams search={this.state.search} handleChange={this.handleSearchChange}/>
+                    
                     <div className="ui grid">
                     {this.state.teams.filter(t => t.name.toLowerCase().includes(this.state.search.toLowerCase()))
                       .map((team,index) => <TeamCard team={team} key={index} handleCLick={this.handleCLick}/>)}
