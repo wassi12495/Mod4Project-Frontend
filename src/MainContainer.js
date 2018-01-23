@@ -8,7 +8,7 @@ import HomePage from './HomePage'
 import TeamShow from './TeamShow'
 import LeagueShow from './LeagueShow'
 import LeagueList from './LeagueList'
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 
 
 export default class MainContainer extends React.Component{
@@ -26,31 +26,23 @@ export default class MainContainer extends React.Component{
 
   componentDidMount(){
 
-
     Adapter.getTeams()
     .then(teams => this.setState({
       teams: teams
     }))
-
 
     Adapter.getLeagues()
     .then(leagues => this.setState({
       leagues: leagues
     }))
 
-
-
-
     // Adapter.getFixtures(this.state.leagues)
-
-
   }
 
 
 
   render(){
 
-    // <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
     console.log("Current state in MainContainer", this.state);
 
     return(
@@ -58,12 +50,14 @@ export default class MainContainer extends React.Component{
           <Router>
             <div>
               <NavBar />
-              <div className="ui container grid ">
-                <Route exact path="/" render={()=> <HomePage leagues={this.state.leagues}/>} />
-                <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
-                <Route exact path="/leagues" render = {() => <LeagueList leagues={this.state.leagues}/> }/>
-                <Route path="/teams/:id" render = {(props) => <TeamShow teams={this.state.teams} {...props}/>}/>
-                <Route path="/leagues/:id" render = {(props) => <LeagueShow  leagues={this.state.leagues} {...props}/>}/>
+              <div className="ui grid container">
+                <Switch>
+                  <Route exact path="/" component={HomePage}/>
+                  <Route path="/teams" component={TeamList}/>
+                  <Route path="/leagues" component={LeagueList}/>
+
+
+                </Switch>
               </div>
           </div>
 

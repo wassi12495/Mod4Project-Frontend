@@ -20,11 +20,11 @@ class HomePage extends Component {
 
   componentDidMount(){
 
-    this.setState({
-      leagueTables: Adapter.getLeagueTable(this.props.leagues)
-    })
+    // this.setState({
+    //   leagueTables: Adapter.getLeagueTable(this.props.leagues)
+    // })
 
-    console.log("home page mount", this.state.leagueTables);
+    // console.log("home page mount", this.state.leagueTables);
 
 
   }

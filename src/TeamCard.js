@@ -7,7 +7,7 @@ const imgStyle = {
   height: '100px'
 }
 
-const TeamCard = ({team, handleCLick}) =>{
+const TeamCard = ({team}) =>{
   // const teamShow = team.map((team,index) => <TeamShow team={team} key={index}/>)
 
   return(
@@ -25,7 +25,7 @@ const TeamCard = ({team, handleCLick}) =>{
           </div>
           <div className="extra content">
             <Link to={`/teams/${team.id}`} className="item">
-              <button onClick={() => handleCLick(team)} className="ui button">More Info
+              <button  className="ui button">More Info
               </button>
             </Link>
           </div>
