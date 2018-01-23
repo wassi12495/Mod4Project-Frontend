@@ -58,7 +58,7 @@ class Adapter {
         "Accept": 'application/json'
       },
       body: JSON.stringify({username: username, password: password})
-    }).then(resp => resp.json()).then(console.log)
+    }).then(resp => resp.json())
   }
 
 

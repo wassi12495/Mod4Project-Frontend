@@ -1,12 +1,8 @@
 import React from 'react'
-import FixtureList from './FixtureList'
-import LeagueTable from './LeagueTable'
 import Adapter from './Adapter'
 import TeamList from './TeamList'
 import NavBar from './NavBar'
 import HomePage from './HomePage'
-import TeamShow from './TeamShow'
-import LeagueShow from './LeagueShow'
 import LeagueList from './LeagueList'
 import Login from './Login'
 import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
@@ -17,30 +13,13 @@ export default class MainContainer extends React.Component{
     super();
 
     this.state = {
-      fixtures: [],
-      leagueTable:[],
-      leagueInfo:[],
-      teams:[],
-      leagues: [],
+      currentUser:{},
     }
   }
 
-  componentDidMount(){
-
-    Adapter.getTeams()
-    .then(teams => this.setState({
-      teams: teams
-    }))
-
-    Adapter.getLeagues()
-    .then(leagues => this.setState({
-      leagues: leagues
-    }))
-
-    // Adapter.getFixtures(this.state.leagues)
+  handleLogin = (user) => {
+    this.setState({currentUser: user})
   }
-
-
 
   render(){
 
@@ -56,8 +35,7 @@ export default class MainContainer extends React.Component{
                   <Route exact path="/" component={HomePage}/>
                   <Route path="/teams" component={TeamList}/>
                   <Route path="/leagues" component={LeagueList}/>
-                  <Route path="/login" component={Login}/>
-
+                  <Route handleLogin={this.handleLogin} path="/login" component={Login}/>
 
                 </Switch>
               </div>
@@ -67,27 +45,5 @@ export default class MainContainer extends React.Component{
       </div>
     )
   }
-  //
-  // <TeamList teams={this.state.teams} />
-  // <LeagueTable leagueTable={this.state.leagueTable}/>
-  // <FixtureList fixtures={this.state.fixtures}/>
-  //
-  //
-
 
 }
-
-
-
-
-// componentDidMount(){
-//   Adapter.fixtureRequest()
-//   .then(resp => resp.json())
-//   .then(data => this.setState(
-//     {
-//     fixtures: data.fixtures
-//
-//     }
-//   ))
-//
-// }

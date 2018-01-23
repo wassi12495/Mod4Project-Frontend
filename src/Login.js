@@ -8,6 +8,7 @@ class Login extends React.Component{
     this.state={
       username:"",
       password:"",
+      error: false
     }
   }
 
@@ -20,15 +21,23 @@ class Login extends React.Component{
 
   handleSubmit = (e) =>{
     e.preventDefault()
-    console.log(this.props);
-    Adapter.login(this.state.username, this.state.password)
+    Adapter.login(this.state.username, this.state.password).then(res => {
+      if (res.error){
+        this.setState({error: true})
+      }else{
+        this.setState({error: false})
+      console.log("the user is", res);
+
+      }
+    })
 
   }
 
   render(){
     const {username, password} = this.state
     return(
-
+      <div>
+      {this.state.error ? <h1> User Authentication Failed </h1> : null}
       <div className="ui form">
           <form onSubmit={this.handleSubmit}>
             <div className="ui field">
@@ -54,6 +63,7 @@ class Login extends React.Component{
               Login
             </button>
           </form>
+        </div>
         </div>
 
     )
