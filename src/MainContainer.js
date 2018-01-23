@@ -26,11 +26,11 @@ export default class MainContainer extends React.Component{
     console.log("Current state in MainContainer", this.state);
 
     return(
-      <div className="App">
+      <div className="app">
         <NavBar
           currentUser={this.state.currentUser}
         />
-        <div className="ui container">
+        <div className="ui grid container">
           <Switch>
             <Route exact path="/" component={HomePage}/>
             <Route path="/teams" component={TeamList}/>
@@ -45,6 +45,8 @@ export default class MainContainer extends React.Component{
           </Switch>
         </div>
       </div>
+
+
     )
   }
 
