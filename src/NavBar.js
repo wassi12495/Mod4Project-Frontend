@@ -5,7 +5,7 @@ import {NavLink, withRouter} from 'react-router-dom';
 class NavBar extends Component {
   render() {
     return (
-      <div className="ui inverted top menu ">
+      <div className="ui top fixed inverted menu ">
         <div className="item">
           <img src="http://www.pngmart.com/files/1/2014-World-Cup-Soccer-Ball-PNG.png" />
         </div>

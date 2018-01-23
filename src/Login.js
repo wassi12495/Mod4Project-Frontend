@@ -37,7 +37,7 @@ class Login extends React.Component{
     console.log("login props", this.props);
     const {username, password} = this.state
     return(
-      <div>
+      <div className="ui container">
       {this.state.error ? <h1> User Authentication Failed </h1> : null}
       <div className="ui form">
           <form onSubmit={this.handleSubmit}>

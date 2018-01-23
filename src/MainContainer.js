@@ -26,27 +26,24 @@ export default class MainContainer extends React.Component{
     console.log("Current state in MainContainer", this.state);
 
     return(
-      <div className="app">
-          <Router>
-            <div>
-              <NavBar />
-              <div className="ui grid fixed container">
-                <Switch>
-                  <Route exact path="/" component={HomePage}/>
-                  <Route path="/teams" component={TeamList}/>
-                  <Route path="/leagues" component={LeagueList}/>
-                  <Route
-                    path="/login"
-                    render={props =>{
-                      return <Login {...props} handleLogin={this.handleLogin}/>
-                    }}
-                  />
+      <div className="App">
+        <NavBar
+          currentUser={this.state.currentUser}
+        />
+        <div className="ui container">
+          <Switch>
+            <Route exact path="/" component={HomePage}/>
+            <Route path="/teams" component={TeamList}/>
+            <Route path="/leagues" component={LeagueList}/>
+            <Route
+              path="/login"
+              render={props =>{
+                return <Login {...props} handleLogin={this.handleLogin}/>
+              }}
+            />
 
-                </Switch>
-              </div>
-          </div>
-
-          </Router>
+          </Switch>
+        </div>
       </div>
     )
   }
