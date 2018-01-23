@@ -52,10 +52,9 @@ export default class MainContainer extends React.Component{
               <NavBar />
               <div className="ui grid container">
                 <Switch>
-
+                  <Route exact path="/" component={HomePage}/>
                   <Route path="/teams" component={TeamList}/>
                   <Route path="/leagues" component={LeagueList}/>
-                  <Route path="/" component={HomePage}/>
 
 
                 </Switch>
