@@ -16,22 +16,10 @@ const TeamList = ({teams}) => {
   return(
     <div className="column">
       <Switch>
-        <div>
-
           <Route exact path='/teams' render = { () => {
-
               console.log("exact path /teams");
-
-              return <div className="ui grid">
-                {team}
-              </div>
-            }
-
-            }
-          />
-
-
-        </div>
+              return <div className="ui grid"> {team} </div>}
+            }/>
       </Switch>
 
     </div>
