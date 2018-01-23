@@ -30,12 +30,17 @@ export default class MainContainer extends React.Component{
           <Router>
             <div>
               <NavBar />
-              <div className="ui grid container">
+              <div className="ui grid fixed container">
                 <Switch>
                   <Route exact path="/" component={HomePage}/>
                   <Route path="/teams" component={TeamList}/>
                   <Route path="/leagues" component={LeagueList}/>
-                  <Route handleLogin={this.handleLogin} path="/login" component={Login}/>
+                  <Route
+                    path="/login"
+                    render={props =>{
+                      return <Login {...props} handleLogin={this.handleLogin}/>
+                    }}
+                  />
 
                 </Switch>
               </div>

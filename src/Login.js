@@ -13,7 +13,6 @@ class Login extends React.Component{
   }
 
   handleChange =(e) => {
-    console.log(e.target.name, e.target.value);
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -25,8 +24,9 @@ class Login extends React.Component{
       if (res.error){
         this.setState({error: true})
       }else{
-        this.setState({error: false})
-      console.log("the user is", res);
+        this.props.handleLogin(res)
+        this.props.history.push('/')
+
 
       }
     })
@@ -34,6 +34,7 @@ class Login extends React.Component{
   }
 
   render(){
+    console.log("login props", this.props);
     const {username, password} = this.state
     return(
       <div>
