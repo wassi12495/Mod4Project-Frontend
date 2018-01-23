@@ -22,6 +22,8 @@ class TeamList extends React.Component{
     .then(teams => this.setState({
       teams: teams
     }))
+
+
   }
 
   handleSearchChange = (event) =>{
@@ -31,12 +33,17 @@ class TeamList extends React.Component{
     })
   }
 
+  handleCLick = () =>{
+    this.setState({
+      search:""
+    })
+  }
+
 
 
   render(){
     console.log(this.state);
     const team = this.state.teams.map((team,index) => <TeamCard team={team} key={index}/>)
-
     return(
       <div className="column">
         <Switch>
@@ -51,12 +58,12 @@ class TeamList extends React.Component{
                 return (
                   <div>
 
-                    <SearchTeams handleChange={this.handleSearchChange}/>
+                    <SearchTeams search={this.state.search} handleChange={this.handleSearchChange}/>
 
-                  <div className="ui grid">
-                  {this.state.teams.filter(t => t.name.toLowerCase().includes(this.state.search))
-                    .map((team,index) => <TeamCard team={team} key={index}/>)}
-                  </div>
+                    <div className="ui grid">
+                    {this.state.teams.filter(t => t.name.toLowerCase().includes(this.state.search.toLowerCase()))
+                      .map((team,index) => <TeamCard team={team} key={index} handleCLick={this.handleCLick}/>)}
+                    </div>
                   </div>
                 )}
               }/>
