@@ -17,17 +17,31 @@ export default class MainContainer extends React.Component{
     }
   }
 
+  componentDidMount(){
+    const token = localStorage.getItem('token')
+    if (token){
+      Adapter.getCurrentUser().then(user =>{
+        this.setState({
+          currentUser: user
+        })
+      })
+
+    }
+  }
+
   handleLogin = (user) => {
     this.setState({currentUser: user})
+    localStorage.setItem('token', user.id)
   }
 
   handleLogout = () => {
     this.setState({currentUser: {}})
+    localStorage.removeItem('token')
   }
 
   render(){
 
-    console.log("Current state in MainContainer", this.state);
+    // console.log("Current state in MainContainer", this.state);
 
     return(
       <div className="app">

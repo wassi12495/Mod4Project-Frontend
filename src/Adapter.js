@@ -1,7 +1,6 @@
 class Adapter {
 
 
-
   static getFixtures(leagues){
     console.log("Leagues",leagues);
     return leagues.map(league => {
@@ -58,6 +57,18 @@ class Adapter {
         "Accept": 'application/json'
       },
       body: JSON.stringify({username: username, password: password})
+    }).then(resp => resp.json())
+  }
+
+  static getCurrentUser (username, password){
+    const token = localStorage.getItem('token')
+    
+    return fetch("http://localhost:3000/api/v1/users", {
+      headers:{
+        "Content-Type": 'application/json',
+        "Accept": 'application/json',
+        'Authorization': token
+      },
     }).then(resp => resp.json())
   }
 
