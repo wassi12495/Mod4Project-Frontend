@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import './App.css'
+
 
 const imgStyle = {
   width: '250px',
@@ -49,7 +52,10 @@ const LeagueShow = ({league}) => {
         {league.teams.map(team => {
           return (
             <tr>
-              <td>{team.name}</td>
+              <Link to={`/teams/${team.id}`} className="item">
+                <td>{team.name}</td>
+
+              </Link>
               <td>{team.position}</td>
               <td>{team.points}</td>
               <td>{team.wins}</td>

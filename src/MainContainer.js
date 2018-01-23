@@ -6,6 +6,7 @@ import HomePage from './HomePage'
 import LeagueList from './LeagueList'
 import Login from './Login'
 import {  Route,  Switch } from 'react-router-dom';
+import './App.css'
 
 
 export default class MainContainer extends React.Component{
@@ -49,7 +50,7 @@ export default class MainContainer extends React.Component{
           currentUser={this.state.currentUser}
           handleLogout={this.handleLogout}
         />
-        <div className="ui grid container">
+      <div className="ui grid container">
           <Switch>
             <Route exact path="/" component={HomePage}/>
             <Route path="/teams" component={TeamList}/>
