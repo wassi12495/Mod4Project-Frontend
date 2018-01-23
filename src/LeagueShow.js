@@ -5,14 +5,9 @@ const imgStyle = {
   height: 'auto'
 }
 
-const LeagueShow = ({leagues,match}) => {
-  console.log(leagues);
-  console.log(match);
-  const league = leagues.find(league => league.id === parseInt(match.params.id))
+const LeagueShow = ({league}) => {
+
   console.log(league);
-
-  
-
   return (
     <div>
         <h1>{league.name}</h1>

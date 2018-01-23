@@ -7,7 +7,7 @@ const imgStyle = {
   height: '100px'
 }
 
-const LeagueCard = ({league, key, handleCLick}) =>{
+const LeagueCard = ({league}) =>{
 // const leagueShow = league.map((league,index) => <LeagueShow league={league} key={index}/>)
 
   return(
@@ -24,8 +24,7 @@ const LeagueCard = ({league, key, handleCLick}) =>{
           </div>
           <div className="extra content">
             <Link to={`/leagues/${league.id}`} className="item">
-              <button onClick={() => handleCLick(league)} className="ui button">More Info
-              </button>
+              <button className="ui button">More Info</button>
             </Link>
           </div>
         </div>

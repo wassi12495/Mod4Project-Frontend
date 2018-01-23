@@ -8,7 +8,7 @@ import HomePage from './HomePage'
 import TeamShow from './TeamShow'
 import LeagueShow from './LeagueShow'
 import LeagueList from './LeagueList'
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 
 
 export default class MainContainer extends React.Component{
@@ -51,11 +51,17 @@ export default class MainContainer extends React.Component{
             <div>
               <NavBar />
               <div className="ui grid container">
-                <Route exact path="/" render={()=> <HomePage leagues={this.state.leagues}/>} />
-                <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
-                <Route exact path="/leagues" render = {() => <LeagueList leagues={this.state.leagues}/> }/>
-                <Route path="/teams/:id" render = {(props) => <TeamShow teams={this.state.teams} {...props}/>}/>
-                <Route path="/leagues/:id" render = {(props) => <LeagueShow  leagues={this.state.leagues} {...props}/>}/>
+                <Switch>
+
+                  <Route path="/teams" component={TeamList}/>
+                  <Route path="/leagues" component={LeagueList}/>
+                  <Route path="/" component={HomePage}/>
+
+
+                  <Route exact path="/" render={()=> <HomePage leagues={this.state.leagues}/>} />
+                  <Route exact path="/leagues" render = {() => <LeagueList leagues={this.state.leagues}/> }/>
+                  <Route path="/leagues/:id" render = {(props) => <LeagueShow  leagues={this.state.leagues} {...props}/>}/>
+                </Switch>
               </div>
           </div>
 
