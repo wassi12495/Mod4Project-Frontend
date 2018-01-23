@@ -49,6 +49,7 @@ export default class MainContainer extends React.Component{
 
 
   render(){
+
     // <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
     console.log("Current state in MainContainer", this.state);
 
@@ -57,7 +58,7 @@ export default class MainContainer extends React.Component{
           <Router>
             <div>
               <NavBar />
-              <div className="ui grid container">
+              <div className="ui container grid ">
                 <Route exact path="/" render={()=> <HomePage leagues={this.state.leagues}/>} />
                 <Route exact path="/teams" render = {() => <TeamList teams={this.state.teams}/> }/>
                 <Route exact path="/leagues" render = {() => <LeagueList leagues={this.state.leagues}/> }/>
