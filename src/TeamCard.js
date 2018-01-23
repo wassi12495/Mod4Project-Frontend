@@ -1,5 +1,4 @@
 import React from 'react'
-import TeamShow from './TeamShow'
 import {Link} from 'react-router-dom'
 
 const imgStyle = {
@@ -7,15 +6,15 @@ const imgStyle = {
   height: '100px'
 }
 
-const TeamCard = ({team, handleCLick}) =>{
+const TeamCard = ({team, key}) =>{
   // const teamShow = team.map((team,index) => <TeamShow team={team} key={index}/>)
 
   return(
 
     <div className="six wide container">
-      <div id={team.id} className="ui card">
+      <div id={key} className="ui card">
         <div  className="ui image">
-          <img style={imgStyle} src={team.img}/>
+          <img alt="" style={imgStyle} src={team.img}/>
         </div>
         <div className="content">
           <p> {team.name}</p>
@@ -25,7 +24,7 @@ const TeamCard = ({team, handleCLick}) =>{
           </div>
           <div className="extra content">
             <Link to={`/teams/${team.id}`} className="item">
-              <button  className="ui button" handleCLick={handleCLick}>More Info
+              <button  className="ui button" >More Info
               </button>
             </Link>
           </div>

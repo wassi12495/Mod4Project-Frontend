@@ -12,7 +12,7 @@ const LeagueShow = ({league}) => {
     <div className="ui grid">
       <div className="eight wide column">
         <h1>{league.name}</h1>
-        <img style={imgStyle} src={league.img}/>
+        <img style={imgStyle} src={league.img} alt=''/>
       </div>
 
       <div className="eight wide column">

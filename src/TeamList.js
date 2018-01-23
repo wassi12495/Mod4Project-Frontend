@@ -3,7 +3,7 @@ import TeamCard from './TeamCard'
 import TeamShow from './TeamShow'
 import Adapter from './Adapter'
 import SearchTeams from "./SearchTeams"
-import { BrowserRouter as Router, Route, NavLink, Link, Switch, withRouter } from 'react-router-dom';
+import {  Route,  Switch,  } from 'react-router-dom';
 
 
 
@@ -33,23 +33,17 @@ class TeamList extends React.Component{
     })
   }
 
-  handleCLick = () =>{
-    this.setState({
-      search:""
-    })
-  }
+
 
 
 
   render(){
-    console.log(this.state);
-    const team = this.state.teams.map((team,index) => <TeamCard team={team} key={index}/>)
     return(
       <div className="column">
         <Switch>
             <Route path='/teams/:id' render = {({match}) => {
               console.log(match.params);
-              const team = this.state.teams.find(t=> t.id === parseInt(match.params.id))
+              const team = this.state.teams.find(t=> t.id === parseInt(match.params.id,10))
               console.log("/teams Team", team);
               return team ? <TeamShow team={team}/> : <div>Loading...</div>
             }}/>
@@ -62,7 +56,7 @@ class TeamList extends React.Component{
 
                     <div className="ui grid">
                     {this.state.teams.filter(t => t.name.toLowerCase().includes(this.state.search.toLowerCase()))
-                      .map((team,index) => <TeamCard team={team} key={index} handleCLick={this.handleCLick}/>)}
+                      .map((team,index) => <TeamCard  team={team} key={index}/>)}
                     </div>
                   </div>
                 )}
