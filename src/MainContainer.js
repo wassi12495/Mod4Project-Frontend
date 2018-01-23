@@ -58,9 +58,6 @@ export default class MainContainer extends React.Component{
                   <Route path="/" component={HomePage}/>
 
 
-                  <Route exact path="/" render={()=> <HomePage leagues={this.state.leagues}/>} />
-                  <Route exact path="/leagues" render = {() => <LeagueList leagues={this.state.leagues}/> }/>
-                  <Route path="/leagues/:id" render = {(props) => <LeagueShow  leagues={this.state.leagues} {...props}/>}/>
                 </Switch>
               </div>
           </div>
