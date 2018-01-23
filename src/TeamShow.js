@@ -8,16 +8,20 @@ const imgStyle = {
 const TeamShow = ({team}) => {
   console.log(team);
   return (
-    <div>
-        <h1>{team.name}</h1>
-        <h3>({team.wins}-{team.draws}-{team.losses})</h3>
-        <img style={imgStyle} src={team.img}/>
+    <div className="ui grid">
+        <div className="eight wide column">
+          <h1>{team.name}</h1>
+          <h3>({team.wins}-{team.draws}-{team.losses})</h3>
+          <img style={imgStyle} src={team.img}/>
+        </div>
+        <div className="eight wide column">
         <h3> Fixtures </h3>
         <ul>
           {team.fixtures.map(game =>
             <li> {game.home} vs. {game.away} Score: {game.home_score}-{game.away_score}</li>
           )}
         </ul>
+      </div>
     </div>
   )
 
