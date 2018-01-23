@@ -5,7 +5,7 @@ import NavBar from './NavBar'
 import HomePage from './HomePage'
 import LeagueList from './LeagueList'
 import Login from './Login'
-import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+import {  Route,  Switch } from 'react-router-dom';
 
 
 export default class MainContainer extends React.Component{

@@ -12,7 +12,7 @@ const TeamShow = ({team}) => {
         <div className="eight wide column">
           <h1>{team.name}</h1>
           <h3>({team.wins}-{team.draws}-{team.losses})</h3>
-          <img style={imgStyle} src={team.img}/>
+          <img style={imgStyle} alt="" src={team.img}/>
         </div>
         <div className="eight wide column">
         <h3> Fixtures </h3>

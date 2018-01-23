@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, NavLink, Link, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import LeagueCard from './LeagueCard'
 import LeagueShow from './LeagueShow'
 import Adapter from './Adapter'
@@ -34,7 +34,7 @@ class LeagueList extends React.Component{
         <Switch>
             <Route path='/leagues/:id' render = {({match}) => {
               console.log(match.params);
-              const league = this.state.leagues.find(t=> t.id === parseInt(match.params.id))
+              const league = this.state.leagues.find(t=> t.id === parseInt(match.params.id,10))
               console.log("/leagues League", league);
               return league ? <LeagueShow league={league}/> : <div>Loading...</div>
             }}/>

@@ -1,5 +1,4 @@
 import React from 'react'
-import LeagueShow from './LeagueShow'
 import {Link} from 'react-router-dom'
 
 const imgStyle = {
@@ -7,16 +6,16 @@ const imgStyle = {
   height: '100px'
 }
 
-const LeagueCard = ({league}) =>{
+const LeagueCard = ({league,key}) =>{
 // const leagueShow = league.map((league,index) => <LeagueShow league={league} key={index}/>)
 
   console.log(league);
   return(
 
     <div className="six wide container">
-      <div id={league.id} className="ui card">
+      <div key={key} className="ui card">
         <div  className="ui image">
-          <img style={imgStyle} src={league.img}/>
+          <img alt="" style={imgStyle} src={league.img}/>
         </div>
         <div className="content">
           <p> {league.name}</p>

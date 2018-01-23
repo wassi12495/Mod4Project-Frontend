@@ -4,7 +4,8 @@ class Adapter {
   static getFixtures(leagues){
     console.log("Leagues",leagues);
     return leagues.map(league => {
-      fetch(`http://api.football-data.org/v1/competitions/${league.api_id}/fixtures`, {
+
+      return fetch(`http://api.football-data.org/v1/competitions/${league.api_id}/fixtures`, {
        headers:  { 'X-Auth-Token': '4a9ace89a355471280f93cb35479661b' },
        type: 'GET',
        datatype: 'json'
@@ -27,7 +28,7 @@ class Adapter {
 
   static getLeagueTable(leagues){
     return leagues.map(league => {
-        fetch(`http://api.football-data.org/v1/competitions/${league.api_id}/leagueTable`,{
+        return fetch(`http://api.football-data.org/v1/competitions/${league.api_id}/leagueTable`,{
           headers:  { 'X-Auth-Token': '4a9ace89a355471280f93cb35479661b' },
           type: 'GET',
           datatype: 'json'
@@ -62,7 +63,7 @@ class Adapter {
 
   static getCurrentUser (username, password){
     const token = localStorage.getItem('token')
-    
+
     return fetch("http://localhost:3000/api/v1/users", {
       headers:{
         "Content-Type": 'application/json',

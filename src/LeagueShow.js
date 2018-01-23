@@ -12,7 +12,7 @@ const LeagueShow = ({league}) => {
     <div>
         <h1>{league.name}</h1>
 
-        <img style={imgStyle} src={league.img}/>
+        <img alt="" style={imgStyle} src={league.img}/>
     </div>
   )
 
