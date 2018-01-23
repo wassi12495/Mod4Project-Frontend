@@ -55,8 +55,6 @@ export default class MainContainer extends React.Component{
                   <Route exact path="/" component={HomePage}/>
                   <Route path="/teams" component={TeamList}/>
                   <Route path="/leagues" component={LeagueList}/>
-
-
                 </Switch>
               </div>
           </div>
