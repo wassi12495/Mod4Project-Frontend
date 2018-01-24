@@ -61,6 +61,17 @@ class Adapter {
     }).then(resp => resp.json())
   }
 
+  static signup(username, password){
+    return fetch("http://localhost:3000/api/v1/users", {
+      method: 'POST',
+      headers:{
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      },
+      body: JSON.stringify({username: username, password: password})
+    }).then(resp => resp.json())
+  }
+
   static getCurrentUser (username, password){
     const token = localStorage.getItem('token')
 
