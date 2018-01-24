@@ -51,13 +51,25 @@ class Adapter {
   }
 
   static login(username, password){
-    return fetch("http://localhost:3000/api/v1/users", {
+    return fetch("http://localhost:3000/api/v1/auth", {
       method: 'POST',
       headers:{
         "Content-Type": 'application/json',
         "Accept": 'application/json'
       },
       body: JSON.stringify({username: username, password: password})
+    }).then(resp => resp.json())
+  }
+
+  static getCurrentUser (username, password){
+    const token = localStorage.getItem('token')
+
+    return fetch("http://localhost:3000/api/v1/auth", {
+      headers:{
+        "Content-Type": 'application/json',
+        "Accept": 'application/json',
+        'Authorization': token
+      },
     }).then(resp => resp.json())
   }
 
