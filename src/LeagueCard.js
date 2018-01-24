@@ -1,13 +1,19 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Adapter from './Adapter'
 
 const imgStyle = {
   width: 'auto',
   height: '100px'
 }
 
-const LeagueCard = ({league,key}) =>{
+const LeagueCard = ({league,key, currentUser}) =>{
 // const leagueShow = league.map((league,index) => <LeagueShow league={league} key={index}/>)
+const loggedIn = !!currentUser.id
+const handleClick =()=>{
+  console.log(league.name, "clicked");
+  Adapter.setFavoriteLeague(league)}
+
 
   console.log(league);
   return(
@@ -17,6 +23,9 @@ const LeagueCard = ({league,key}) =>{
         <div  className="ui image">
           <img alt="" style={imgStyle} src={league.img}/>
         </div>
+        {loggedIn ? (
+          <div onClick={handleClick}className="ui button"> Favorite </div>
+        ):(null)}
         <div className="content">
           <p> {league.name}</p>
           <div className="description">

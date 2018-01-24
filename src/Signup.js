@@ -30,7 +30,6 @@ class Signup extends React.Component{
     const {username, password} = this.state
     return(
       <div>
-      {this.state.error ? <h1> User Authentication Failed </h1> : null}
       <div className="ui form">
           <form onSubmit={this.handleSubmit}>
             <div className="ui field">
@@ -53,7 +52,7 @@ class Signup extends React.Component{
               />
             </div>
             <button type="submit" className="ui basic green button">
-              Login
+              Signup
             </button>
           </form>
         </div>
