@@ -36,9 +36,10 @@ class Login extends React.Component{
   render(){
     const {username, password} = this.state
     return(
-      <div>
+      <div className = "ui one column stackable center aligned page grid">
       {this.state.error ? <h1> User Authentication Failed </h1> : null}
-      <div className="ui form">
+      <div className="column twelve wide">
+        <div className="ui form">
           <form onSubmit={this.handleSubmit}>
             <div className="ui field">
               <label>Username</label>
@@ -63,6 +64,7 @@ class Login extends React.Component{
               Login
             </button>
           </form>
+        </div>
         </div>
         </div>
 
