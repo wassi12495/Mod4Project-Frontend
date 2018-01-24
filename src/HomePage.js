@@ -30,9 +30,11 @@ class HomePage extends Component {
       teams: teams
     }))
     Adapter.getCurrentUser()
-    .then(user => this.setState({
+    .then(user => {
+      this.setState({
       user: user
-    }))
+      })
+    })
 
   }
 

@@ -30,6 +30,11 @@ export default class MainContainer extends React.Component{
 
     }
   }
+  updateUser = (user)=>{
+    this.setState({
+      currentUser: user
+    })
+  }
 
   handleLogin = (user) => {
     this.setState({currentUser: user})
@@ -54,7 +59,9 @@ export default class MainContainer extends React.Component{
       <div className="ui grid container">
           <Switch>
             <Route exact path="/" render={()=>{
-                return <HomePage currentUser={this.state.currentUser}/>
+                return <HomePage
+                  updateUser={this.updateUser}
+                  currentUser={this.state.currentUser}/>
             }}
             />
             <Route path="/teams" render={()=>{
