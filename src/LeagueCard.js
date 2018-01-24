@@ -13,6 +13,7 @@ const loggedIn = !!currentUser.id
 const handleClick =()=>{
   console.log(league.name, "clicked");
   Adapter.setFavoriteLeague(league)}
+  
 
 
   console.log(league);
