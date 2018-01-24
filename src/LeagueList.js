@@ -40,7 +40,7 @@ class LeagueList extends React.Component{
             }}/>
             <Route exact path='/leagues' render = { () => {
                 console.log("exact path /leagues");
-                return <div className="ui grid"> {league} </div>}
+                return <div className="ui stackable center aligned page grid"> {league} </div>}
               }/>
 
         </Switch>
