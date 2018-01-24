@@ -77,7 +77,33 @@ class HomePage extends Component {
                   </Link>
                 )}
             </div>
-            <div className="eight wide column"> <h1 className="ui center aligned header">Favorites</h1></div>
+            <div className="eight wide column"> <h1 className="ui center aligned header">Favorites</h1>
+                {this.props.currentUser.leagues ? (this.props.currentUser.leagues.map(league=>{
+                  console.log(league)
+                  return(<Link to={`/leagues/${league.id}`} className="item">
+                    <div className="ui card">
+                    <div  className="ui image">
+                      <img alt="" style={imgStyle} src={league.img}/>
+                    </div>
+                    <div className="content">
+                      <p> {league.name}</p>
+                    </div>
+                    </div>
+                </Link>)
+              })):(null)}
+                {this.props.currentUser.teams ? (this.props.currentUser.teams.map(team=>{
+                  <Link to={`/teams/${team.id}`} className="item">
+                    <div className="ui card">
+                    <div  className="ui image">
+                      <img alt="" style={imgStyle} src={team.img}/>
+                    </div>
+                    <div className="content">
+                      <p> {team.name}</p>
+                    </div>
+                    </div>
+                </Link>
+              })):(null)}
+        </div>
           </div>
         ):(
           <div className="ui grid">
