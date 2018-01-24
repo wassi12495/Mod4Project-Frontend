@@ -14,7 +14,8 @@ class HomePage extends Component {
     this.state = {
       leagueTables: [],
       leagues: [],
-      teams: []
+      teams: [],
+      user: {}
     }
 
   }
@@ -27,6 +28,10 @@ class HomePage extends Component {
     Adapter.getTeams()
     .then(teams => this.setState({
       teams: teams
+    }))
+    Adapter.getCurrentUser()
+    .then(user => this.setState({
+      user: user
     }))
 
   }
@@ -78,7 +83,7 @@ class HomePage extends Component {
                 )}
             </div>
             <div className="eight wide column"> <h1 className="ui center aligned header">Favorites</h1>
-                {this.props.currentUser.leagues ? (this.props.currentUser.leagues.map(league=>{
+                {this.state.user.leagues ? (this.state.user.leagues.map(league=>{
                   console.log(league)
                   return(<Link to={`/leagues/${league.id}`} className="item">
                     <div className="ui card">
@@ -91,7 +96,7 @@ class HomePage extends Component {
                     </div>
                 </Link>)
               })):(null)}
-                {this.props.currentUser.teams ? (this.props.currentUser.teams.map(team=>{
+                {this.state.user.teams ? (this.state.user.teams.map(team=>{
                   return (<Link to={`/teams/${team.id}`} className="item">
                     <div className="ui card">
                     <div  className="ui image">
