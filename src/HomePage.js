@@ -49,9 +49,9 @@ class HomePage extends Component {
       <div className="column">
 
         {loggedIn ? (
-          <div className="ui grid">
-            <div className="four wide column">
-              <h1 className="ui center aligned header">Top Leagues</h1>
+          <div className="ui stackable center aligned page grid">
+            <div className="five wide column">
+              <h1>Top Leagues</h1>
                 {this.state.leagues.filter(league =>
                   league.id === 1 || league.id === 4 || league.id === 5).map(league =>
                     <Link to={`/leagues/${league.id}`} className="item">
@@ -66,8 +66,8 @@ class HomePage extends Component {
                   </Link>
                 )}
             </div>
-            <div className="four wide column">
-              <h1 className="ui center aligned header">Top Teams</h1>
+            <div className="five wide column">
+              <h1>Top Teams</h1>
                 {this.state.teams.filter(team =>
                   team.position === 1).map(team =>
                     <Link to={`/teams/${team.id}`} className="item">
@@ -82,7 +82,7 @@ class HomePage extends Component {
                   </Link>
                 )}
             </div>
-            <div className="eight wide column"> <h1 className="ui center aligned header">Favorites</h1>
+            <div className="five wide column"> <h1>Favorites</h1>
                 {this.state.user.leagues ? (this.state.user.leagues.map(league=>{
                   console.log(league)
                   return(<Link to={`/leagues/${league.id}`} className="item">

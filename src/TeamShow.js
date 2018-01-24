@@ -8,7 +8,7 @@ const imgStyle = {
 const TeamShow = ({team}) => {
   console.log(team);
   return (
-    <div className="ui grid">
+    <div className="ui stackable center aligned page grid">
         <div className="eight wide column">
           <h1>{team.name}</h1>
           <h3>({team.wins}-{team.draws}-{team.losses})</h3>

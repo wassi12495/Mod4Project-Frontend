@@ -12,7 +12,7 @@ const LeagueShow = ({league}) => {
 
   console.log("Currently in league show", league);
   return (
-    <div className="ui grid">
+    <div className="ui stackable center aligned page grid">
       <div className="eight wide column">
         <h1>{league.name}</h1>
         <img style={imgStyle} src={league.img} alt=''/>
