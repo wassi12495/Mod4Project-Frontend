@@ -1,11 +1,11 @@
 class Adapter {
 
 
-  static getFixtures(leagues){
+
+  static getFixtures(leagues, ){
     console.log("Leagues",leagues);
     return leagues.map(league => {
-
-      return fetch(`http://api.football-data.org/v1/competitions/${league.api_id}/fixtures`, {
+      fetch(`http://api.football-data.org/v1/competitions/${league.api_id}/fixtures`, {
        headers:  { 'X-Auth-Token': '4a9ace89a355471280f93cb35479661b' },
        type: 'GET',
        datatype: 'json'
@@ -28,7 +28,7 @@ class Adapter {
 
   static getLeagueTable(leagues){
     return leagues.map(league => {
-        return fetch(`http://api.football-data.org/v1/competitions/${league.api_id}/leagueTable`,{
+        fetch(`http://api.football-data.org/v1/competitions/${league.api_id}/leagueTable`,{
           headers:  { 'X-Auth-Token': '4a9ace89a355471280f93cb35479661b' },
           type: 'GET',
           datatype: 'json'
