@@ -72,7 +72,7 @@ class Adapter {
     }).then(resp => resp.json())
   }
 
-  static getCurrentUser (username, password){
+  static getCurrentUser (){
     const token = localStorage.getItem('token')
 
     return fetch("http://localhost:3000/api/v1/auth", {
@@ -84,7 +84,33 @@ class Adapter {
     }).then(resp => resp.json())
   }
 
+  static setFavoriteTeam(team){
+    const token = localStorage.getItem('token')
 
+    fetch("http://localhost:3000/api/v1/favorites/team", {
+      method: 'POST',
+      headers:{
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      },
+      body: JSON.stringify({team: team, user: token})
+    }).then(resp => resp.json()).then(resp => console.log(resp))
+
+  }
+
+  static setFavoriteLeague(league){
+    const token = localStorage.getItem('token')
+
+    fetch("http://localhost:3000/api/v1/favorites/league", {
+      method: 'POST',
+      headers:{
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      },
+      body: JSON.stringify({league: league, user: token})
+    }).then(resp => resp.json()).then(resp => console.log(resp))
+
+  }
 
 }
 export default Adapter

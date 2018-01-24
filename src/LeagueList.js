@@ -27,7 +27,7 @@ class LeagueList extends React.Component{
 
   render(){
     console.log(this.state);
-    const league = this.state.leagues.map((league,index) => <LeagueCard league={league} key={index}/>)
+    const league = this.state.leagues.map((league,index) => <LeagueCard currentUser={this.props.currentUser} league={league} key={index}/>)
 
     return(
       <div className="column">

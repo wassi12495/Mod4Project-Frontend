@@ -60,7 +60,9 @@ export default class MainContainer extends React.Component{
             <Route path="/teams" render={()=>{
               return <TeamList currentUser={this.state.currentUser}/>
             }}/>
-            <Route path="/leagues" component={LeagueList}/>
+            <Route path="/leagues" render={()=>{
+              return <LeagueList currentUser={this.state.currentUser}/>
+            }}/>
             <Route
               path="/login"
               render={props =>{
