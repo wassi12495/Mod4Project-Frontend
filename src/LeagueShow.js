@@ -16,6 +16,12 @@ const LeagueShow = ({league}) => {
       <div className="eight wide column">
         <h1>{league.name}</h1>
         <img style={imgStyle} src={league.img} alt=''/>
+        <h1>Upcoming Matches</h1>
+        <div>
+          {league.fixtures.filter(fixture => fixture.status === "SCHEDULED")
+            .slice(0,10)
+            .map(fixture=> <ul>{fixture.home} vs. {fixture.away}<br/> {fixture.date}</ul>)}
+        </div>
       </div>
 
       <div className="eight wide column">

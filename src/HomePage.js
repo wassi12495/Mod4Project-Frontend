@@ -92,7 +92,7 @@ class HomePage extends Component {
                 </Link>)
               })):(null)}
                 {this.props.currentUser.teams ? (this.props.currentUser.teams.map(team=>{
-                  <Link to={`/teams/${team.id}`} className="item">
+                  return (<Link to={`/teams/${team.id}`} className="item">
                     <div className="ui card">
                     <div  className="ui image">
                       <img alt="" style={imgStyle} src={team.img}/>
@@ -101,7 +101,7 @@ class HomePage extends Component {
                       <p> {team.name}</p>
                     </div>
                     </div>
-                </Link>
+                </Link>)
               })):(null)}
         </div>
           </div>
