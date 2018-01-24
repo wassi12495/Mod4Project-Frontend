@@ -3,7 +3,7 @@ import {NavLink, withRouter} from 'react-router-dom';
 
 
 class NavBar extends Component {
-  
+
   render() {
     console.log("Nav", this.props.currentUser);
     const loggedIn = !!this.props.currentUser.id
@@ -26,7 +26,12 @@ class NavBar extends Component {
                   </div>
                 </div>
             ):(
-              <NavLink exact to="/Login" className="item"> Login </NavLink>
+              <div>
+                  <NavLink exact to="/login" className="item"> Login </NavLink>
+                <NavLink exact to="/signup" className="item"> Signup </NavLink>
+              </div>
+
+
             )
 
           }

@@ -5,6 +5,7 @@ import NavBar from './NavBar'
 import HomePage from './HomePage'
 import LeagueList from './LeagueList'
 import Login from './Login'
+import Signup from './Signup'
 import {  Route,  Switch } from 'react-router-dom';
 import './App.css'
 
@@ -64,6 +65,15 @@ export default class MainContainer extends React.Component{
               path="/login"
               render={props =>{
                 return <Login
+                        {...props}
+                        handleLogin={this.handleLogin}
+                        />
+              }}
+            />
+            <Route
+              path="/signup"
+              render={props =>{
+                return <Signup
                         {...props}
                         handleLogin={this.handleLogin}
                         />

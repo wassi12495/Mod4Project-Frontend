@@ -1,4 +1,5 @@
 import React from 'react'
+import Adapter from './Adapter'
 
 
 class Signup extends React.Component{
@@ -20,8 +21,9 @@ class Signup extends React.Component{
 
   handleSubmit = (e) =>{
     e.preventDefault()
-    Adapter.signup(this.state.username, this.state.password).then(res => {console.log(res)}
-    })
+    Adapter.signup(this.state.username, this.state.password).then(res => {this.props.handleLogin(res)
+    this.props.history.push('/')}
+    )
   }
 
   render(){
