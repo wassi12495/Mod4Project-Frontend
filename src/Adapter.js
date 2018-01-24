@@ -94,7 +94,7 @@ class Adapter {
         "Accept": 'application/json'
       },
       body: JSON.stringify({team: team, user: token})
-    }).then(resp => resp.json()).then(resp => console.log(resp))
+    }).then(resp => resp.json()).then(resp => console.log("resp",resp))
 
   }
 
@@ -108,7 +108,7 @@ class Adapter {
         "Accept": 'application/json'
       },
       body: JSON.stringify({league: league, user: token})
-    }).then(resp => resp.json()).then(resp => console.log(resp))
+    }).then(resp => resp.json()).then(resp => console.log("resp",resp))
 
   }
 
