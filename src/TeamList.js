@@ -38,6 +38,7 @@ class TeamList extends React.Component{
 
 
   render(){
+    console.log("state", this.state.teams);
     return(
       <div className="column">
         <Switch>

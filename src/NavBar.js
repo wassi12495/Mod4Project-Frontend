@@ -26,7 +26,7 @@ class NavBar extends Component {
                   </div>
                 </div>
             ):(
-              <div>
+              <div className="item">
                   <NavLink exact to="/login" className="item"> Login </NavLink>
                 <NavLink exact to="/signup" className="item"> Signup </NavLink>
               </div>

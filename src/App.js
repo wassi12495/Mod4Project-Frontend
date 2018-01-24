@@ -8,7 +8,7 @@ class App extends Component {
     console.log("RENDERING", this.props);
     return (
 
-        <div className="bg">
+        <div>
           <MainContainer />
         </div>
     );

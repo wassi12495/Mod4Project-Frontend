@@ -29,8 +29,10 @@ class Signup extends React.Component{
   render(){
     const {username, password} = this.state
     return(
-      <div>
-      <div className="ui form">
+      <div className = "ui one column stackable center aligned page grid">
+        <div className="column twelve wide" >
+          <h1>Sign Up</h1>
+        <div className="ui form">
           <form onSubmit={this.handleSubmit}>
             <div className="ui field">
               <label>Username</label>
@@ -55,6 +57,7 @@ class Signup extends React.Component{
               Signup
             </button>
           </form>
+        </div>
         </div>
         </div>
 
