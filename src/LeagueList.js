@@ -1,56 +1,69 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom';
-import LeagueCard from './LeagueCard'
-import LeagueShow from './LeagueShow'
-import Adapter from './Adapter'
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import LeagueCard from "./LeagueCard";
+import LeagueShow from "./LeagueShow";
+import Adapter from "./Adapter";
 
+class LeagueList extends React.Component {
+  constructor(props) {
+    super(props);
 
-
-
-class LeagueList extends React.Component{
-  constructor(props){
-    super(props)
-
-    this.state={
+    this.state = {
       leagues: []
-    }
+    };
   }
 
-  componentDidMount(){
-    Adapter.getLeagues()
-    .then(leagues => this.setState({
-      leagues: leagues
-    }))
+  componentDidMount() {
+    Adapter.getLeagues().then(leagues =>
+      this.setState({
+        leagues: leagues
+      })
+    );
   }
 
-
-
-  render(){
+  render() {
     console.log(this.state);
-    const league = this.state.leagues.map((league,index) => <LeagueCard currentUser={this.props.currentUser} league={league} key={index}/>)
+    const league = this.state.leagues.map((league, index) => (
+      <LeagueCard
+        currentUser={this.props.currentUser}
+        league={league}
+        key={index}
+      />
+    ));
 
-    return(
+    return (
       <div className="column">
         <Switch>
-            <Route path='/leagues/:id' render = {({match}) => {
+          <Route
+            path="/leagues/:id"
+            render={({ match }) => {
               console.log(match.params);
-              const league = this.state.leagues.find(t=> t.id === parseInt(match.params.id,10))
+              const league = this.state.leagues.find(
+                t => t.id === parseInt(match.params.id, 10)
+              );
               console.log("/leagues League", league);
-              return league ? <div className="four wide column"><LeagueShow league={league}/></div> : <div>Loading...</div>
-            }}/>
-            <Route exact path='/leagues' render = { () => {
-                console.log("exact path /leagues");
-                return <div className="ui grid"> {league} </div>}
-              }/>
-
+              return league ? (
+                <LeagueShow league={league} />
+              ) : (
+                <div>Loading...</div>
+              );
+            }}
+          />
+          <Route
+            exact
+            path="/leagues"
+            render={() => {
+              console.log("exact path /leagues");
+              return (
+                <div className="ui stackable aligned grid"> {league} </div>
+              );
+            }}
+          />
         </Switch>
-
       </div>
-    )
+    );
   }
-
 }
-
 
 // const LeagueList = ({leagues}) =>{
 //   console.log(leagues);
@@ -96,4 +109,4 @@ class LeagueList extends React.Component{
 //
 // }
 
-export default LeagueList
+export default LeagueList;
