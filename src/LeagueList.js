@@ -36,11 +36,11 @@ class LeagueList extends React.Component{
               console.log(match.params);
               const league = this.state.leagues.find(t=> t.id === parseInt(match.params.id,10))
               console.log("/leagues League", league);
-              return league ? <LeagueShow league={league}/> : <div>Loading...</div>
+              return league ? <div className="four wide column"><LeagueShow league={league}/></div> : <div>Loading...</div>
             }}/>
             <Route exact path='/leagues' render = { () => {
                 console.log("exact path /leagues");
-                return <div className="ui stackable center aligned page grid"> {league} </div>}
+                return <div className="ui grid"> {league} </div>}
               }/>
 
         </Switch>

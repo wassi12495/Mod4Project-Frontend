@@ -52,13 +52,11 @@ class TeamList extends React.Component{
                 console.log("exact path /teams");
                 return (
                   <div>
-
                       <SearchTeams search={this.state.search} handleChange={this.handleSearchChange}/>
-
-                    <div className="ui stackable center aligned page grid">
-                    {this.state.teams.filter(t => t.name.toLowerCase().includes(this.state.search.toLowerCase()))
-                      .map((team,index) => <TeamCard currentUser={this.props.currentUser} team={team} key={index}/>)}
-                    </div>
+                      <div className="ui grid">
+                      {this.state.teams.filter(t => t.name.toLowerCase().includes(this.state.search.toLowerCase()))
+                        .map((team,index) => <div className="four wide column"><TeamCard currentUser={this.props.currentUser} team={team} key={index}/></div>)}
+                      </div>
                   </div>
                 )}
               }/>

@@ -46,6 +46,7 @@ export default class MainContainer extends React.Component{
     localStorage.removeItem('token')
   }
 
+
   render(){
 
     // console.log("Current state in MainContainer", this.state);

@@ -13,10 +13,12 @@ const loggedIn = !!currentUser.id
 const handleClick =()=>{
   console.log(league.name, "clicked");
   Adapter.setFavoriteLeague(league)}
-  
+
 
 
   console.log(league);
+  var dateFormat = require('dateformat');
+
   return(
 
     <div className="six wide container">
@@ -30,9 +32,9 @@ const handleClick =()=>{
         <div className="content">
           <p> {league.name}</p>
           <div className="description">
-            {league.fixtures.filter(fixture => fixture.status === "SCHEDULED")
+            {league.fixtures.filter(fixture => fixture.status === "TIMED")
             .slice(0,3)
-            .map(fixture=> <ul>{fixture.home} vs. {fixture.away}<br/> {fixture.date}</ul>)}
+            .map(fixture=> <ul>{fixture.home} vs. {fixture.away}<br/> {dateFormat(fixture.date, "dddd, mmmm dS, yyyy, h:MM:ss TT")}</ul>)}
           </div>
           <div className="extra content">
             <Link to={`/leagues/${league.id}`} className="item">

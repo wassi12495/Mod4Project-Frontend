@@ -8,7 +8,7 @@ class NavBar extends Component {
     console.log("Nav", this.props.currentUser);
     const loggedIn = !!this.props.currentUser.id
     return (
-      <div className="ui top inverted menu ">
+      <div className="ui top inverted fixed menu">
         <div className="item">
           <img alt="" src="http://www.pngmart.com/files/1/2014-World-Cup-Soccer-Ball-PNG.png" />
         </div>

@@ -11,6 +11,8 @@ const imgStyle = {
 const LeagueShow = ({league}) => {
 
   console.log("Currently in league show", league);
+  var dateFormat = require('dateformat');
+
   return (
     <div className="ui stackable center aligned page grid">
       <div className="eight wide column">
@@ -18,9 +20,9 @@ const LeagueShow = ({league}) => {
         <img style={imgStyle} src={league.img} alt=''/>
         <h1>Upcoming Matches</h1>
         <div>
-          {league.fixtures.filter(fixture => fixture.status === "SCHEDULED")
+          {league.fixtures.filter(fixture => fixture.status === "TIMED")
             .slice(0,10)
-            .map(fixture=> <ul>{fixture.home} vs. {fixture.away}<br/> {fixture.date}</ul>)}
+            .map(fixture=> <ul>{fixture.home} vs. {fixture.away}<br/> {dateFormat(fixture.date, "dddd, mmmm dS, yyyy, h:MM TT")}</ul>)}
         </div>
       </div>
 
